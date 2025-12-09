@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Den Lukkede Afdeling announce roster changes | “HLTV-style” mock</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Open Graph for Discord preview -->
+  <meta property="og:title" content="Den Lukkede Afdeling bench trio and announce new CS2 lineup" />
+  <meta property="og:description" content="After a rough period of results, Den Lukkede Afdeling announces major changes to their CS2 roster." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://example.com/den-lukkede-afdeling-roster.html" />
+  <!-- Skift til din rigtige URL når du uploader -->
+  <meta property="og:image" content="https://dummyimage.com/1200x630/111827/ffffff&text=Den+Lukkede+Afdeling+Roster+Update" />
+
+  <style>
+    :root {
+      --bg: #0d1117;
+      --bg-darker: #06080c;
+      --card-bg: #111827;
+      --accent: #1f6feb;
+      --accent-soft: rgba(31, 111, 235, 0.15);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2933;
+      --danger: #ef4444;
+      --success: #22c55e;
+      --bench: #f97316;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-main);
+      background: radial-gradient(circle at top, #111827 0, #020617 45%, #000 100%);
+      color: var(--text);
+    }
+
+    .top-bar {
+      background: var(--bg-darker);
+      border-bottom: 1px solid var(--border);
+      padding: 8px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .top-bar span strong {
+      color: var(--accent);
+    }
+
+    .layout {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 16px;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 1.2fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .logo-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px 0;
+      max-width: 1120px;
+      margin: 0 auto 4px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      font-size: 20px;
+      text-transform: uppercase;
+      color: #f9fafb;
+    }
+
+    .logo-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 4px;
+      background: linear-gradient(135deg, #1f6feb, #22c55e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .logo small {
+      font-size: 10px;
+      color: var(--muted);
+      text-transform: none;
+      letter-spacing: normal;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .nav-links span {
+      cursor: pointer;
+      position: relative;
+    }
+
+    .nav-links span.active {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .nav-links span.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -4px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 999px;
+    }
+
+    .article-card {
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      padding: 20px 20px 24px;
+      box-shadow: 0 22px 55px rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(18px);
+    }
+
+    .tag-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .tag-pill {
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 10px;
+    }
+
+    .headline {
+      font-size: 24px;
+      font-weight: 700;
+      margin: 4px 0 6px;
+    }
+
+    .subheadline {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .meta-row span.dot::before {
+      content: "• ";
+      opacity: 0.7;
+    }
+
+    .hero-banner {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, #0b1120, #020617);
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .hero-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 12px;
+    }
+
+    .hero-tag {
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-tag .label {
+      color: var(--muted);
+      margin-right: 4px;
+    }
+
+    .hero-tag .value {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    article p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text);
+      margin: 0 0 12px;
+    }
+
+    article p.muted {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .section-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin: 18px 0 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    .roster-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 600px) {
+      .roster-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .player-card {
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      background: rgba(15, 23, 42, 0.9);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      font-size: 13px;
+    }
+
+    .player-nick {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .player-role {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .player-tagline {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .bench-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+
+    .bench-list span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .bench-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--bench);
+    }
+
+    .quote-block {
+      border-left: 3px solid var(--accent);
+      padding-left: 10px;
+      margin: 12px 0;
+      font-size: 13px;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .side-column {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .side-card {
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      padding: 12px 14px 14px;
+      font-size: 13px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(16px);
+    }
+
+    .side-card h3 {
+      margin: 0 0 8px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    .side-card p {
+      margin: 0 0 6px;
+      color: var(--muted);
+    }
+
+    .side-highlight {
+      font-size: 12px;
+      color: var(--text);
+      padding: 6px 8px;
+      border-radius: 6px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border);
+      margin-top: 4px;
+    }
+
+    .footer-note {
+      max-width: 1120px;
+      margin: 20px auto 24px;
+      padding: 0 16px;
+      font-size: 11px;
+      color: var(--muted);
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <span><strong>LIVE</strong> – CS2 coverage · Europe</span>
+    <span>Mock page inspired by HLTV.org · For fun only</span>
+  </div>
+
+  <header class="logo-nav">
+    <div class="logo">
+      <div class="logo-icon">H</div>
+      HLTV<span style="opacity:0.5;">-style</span>
+      <small>unofficial parody article</small>
+    </div>
+    <nav class="nav-links">
+      <span class="active">News</span>
+      <span>Matches</span>
+      <span>Results</span>
+      <span>Stats</span>
+      <span>Forums</span>
+    </nav>
+  </header>
+
+  <main class="layout">
+    <section class="article-card">
+      <div class="tag-row">
+        <span class="tag-pill">Roster update</span>
+        <span>Denmark · CS2</span>
+      </div>
+
+      <h1 class="headline">
+        Den Lukkede Afdeling bench trio, announce new CS2 lineup
+      </h1>
+      <p class="subheadline">
+        After a rough streak of losses, the Danish squad reshuffles its starting five and hands over key roles to a new core.
+      </p>
+
+      <div class="meta-row">
+        <span>by staff</span>
+        <span class="dot">Dec 9, 2025</span>
+        <span class="dot">Updated 17:00 CET</span>
+      </div>
+
+      <div class="hero-banner">
+        <div class="hero-label">ROSTER OVERVIEW</div>
+        <div class="hero-stats">
+          <div class="hero-tag">
+            <span class="label">Team:</span>
+            <span class="value">Den Lukkede Afdeling</span>
+          </div>
+          <div class="hero-tag">
+            <span class="label">Game:</span>
+            <span class="value">Counter-Strike 2</span>
+          </div>
+          <div class="hero-tag">
+            <span class="label">Change:</span>
+            <span class="value">3 benched · 3 role swaps</span>
+          </div>
+          <div class="hero-tag">
+            <span class="label">Status:</span>
+            <span class="value">Effective immediately</span>
+          </div>
+        </div>
+      </div>
+
+      <article>
+        <p>
+          After a period characterized by too many losses and not enough highlights, the leadership of
+          <strong>Den Lukkede Afdeling</strong> has decided to make significant changes to its CS2 starting lineup.
+        </p>
+
+        <p>
+          Effective immediately, <strong>@Deepsito</strong>, <strong>@Scharn9</strong> and <strong>@taica</strong> will step out of the starting five and move to the bench. In their place, a new core will take over the key roles in the team.
+        </p>
+
+        <h2 class="section-title">New starting lineup & roles</h2>
+
+        <div class="roster-grid">
+          <div class="player-card">
+            <div class="player-nick">@Marcus</div>
+            <div class="player-role">Support</div>
+            <div class="player-tagline">Utility, trading and dirty work in late rounds.</div>
+          </div>
+          <div class="player-card">
+            <div class="player-nick">@Draygus</div>
+            <div class="player-role">Entry fragger</div>
+            <div class="player-tagline">First man in – first contact, first chaos.</div>
+          </div>
+          <div class="player-card">
+            <div class="player-nick">@submastersubs</div>
+            <div class="player-role">In-game leader (IGL)</div>
+            <div class="player-tagline">Takes over calling duties from @Scharn9.</div>
+          </div>
+          <div class="player-card">
+            <div class="player-nick">@Bentsen</div>
+            <div class="player-role">AWPer</div>
+            <div class="player-tagline">Steps into the sniper role previously held by @taica.</div>
+          </div>
+          <div class="player-card">
+            <div class="player-nick">@Uldnesok</div>
+            <div class="player-role">Anchor</div>
+            <div class="player-tagline">Replaces @Deepsito as site anchor and defensive backbone.</div>
+          </div>
+        </div>
+
+        <p>
+          The organisation clarifies that <strong>@Sok</strong> will still be part of the starting lineup when timing allows –
+          especially on the days where, as the team jokingly states, “he is not sleeping, as he is the star of the team”.
+        </p>
+
+        <h2 class="section-title">Benched players</h2>
+        <div class="bench-list">
+          <span><span class="bench-dot"></span> <strong>@taica</strong></span>
+          <span><span class="bench-dot"></span> <strong>@Deepsito</strong></span>
+          <span><span class="bench-dot"></span> <strong>@Scharn9</strong></span>
+        </div>
+
+        <p class="muted">
+          Even though the results have not lived up to expectations, the organisation underlines that all three benched
+          players have been important in building the current identity of the team.
+        </p>
+
+        <h2 class="section-title">Thank you to the benched players</h2>
+
+        <p><strong>@taica – the team’s own m0NESY</strong></p>
+        <p>
+          The organisation thanks @taica for his mechanical skill ceiling and explosive impact. When he was on, he could
+          take over rounds in a way reminiscent of the young sniper superstar. Even in the missed shots, there was
+          creativity and the willingness to decide the game.
+        </p>
+
+        <p><strong>@Deepsito – the dupreeh-style workhorse</strong></p>
+        <p>
+          Described as the “glue” of the roster, @Deepsito often took on the sacrificial roles and difficult positions
+          for the sake of the team. The organisation highlights his loyalty, work ethic and willingness to take duels no
+          one else wanted to touch.
+        </p>
+
+        <p><strong>@Scharn9 – the gla1ve-like mastermind</strong></p>
+        <p>
+          As in-game leader, @Scharn9 has been the mind behind the structure, even in chaotic games. Although the results
+          did not always match the ideas, the organisation emphasises his contribution to culture, tactics and long-term
+          thinking in the squad.
+        </p>
+
+        <h2 class="section-title">Decision from the top of the organisation</h2>
+
+        <p>
+          According to the statement, the roster move comes directly from the top level of the organisation,
+          <strong>“Den Lukkede Afdeling”</strong>. The decision is presented as a necessary step to create clarity in roles,
+          responsibility and future direction.
+        </p>
+
+        <div class="quote-block">
+          “This change is not about pointing fingers, but about giving the team a fresh start.  
+          We are grateful for what the benched players have contributed and believe this new structure is the right move
+          for the next chapter,” the organisation states.
+        </div>
+
+        <p>
+          Players who wish to seek a new organisation or get a direct explanation of the changes are encouraged to reach
+          out either to the upper management of Den Lukkede Afdeling, or to <strong>@Uldnesok</strong>, who is described as
+          being closest to the leadership and having “competent leadership skills” in the internal announcement.
+        </p>
+
+        <p class="muted">
+          With the new roster locked in, attention now turns to whether Den Lukkede Afdeling can turn their recent slump
+          around and stabilise their performance in upcoming matches.
+        </p>
+      </article>
+    </section>
+
+    <aside class="side-column">
+      <div class="side-card">
+        <h3>Roster summary</h3>
+        <p><strong>New lineup:</strong></p>
+        <div class="side-highlight">
+          @Marcus – Support<br />
+          @Draygus – Entry fragger<br />
+          @submastersubs – IGL<br />
+          @Bentsen – AWP<br />
+          @Uldnesok – Anchor<br />
+          <br />
+          @Sok – Star player (conditional on sleep schedule)
+        </div>
+      </div>
+
+      <div class="side-card">
+        <h3>Benched</h3>
+        <div class="side-highlight">
+          @taica – Former AWP<br />
+          @Deepsito – Former anchor / rifler<br />
+          @Scharn9 – Former IGL
+        </div>
+      </div>
+
+      <div class="side-card">
+        <h3>Contact & leadership</h3>
+        <p>
+          For explanations, transfer talks or organisational questions, players are instructed to contact:
+        </p>
+        <div class="side-highlight">
+          – Upper management, “Den Lukkede Afdeling”<br />
+          – or @Uldnesok, noted as being closest to the decision-makers.
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <div class="footer-note">
+    This is a fan-made parody page inspired by HLTV.org styling. Not affiliated with HLTV.org or any official entity.
+  </div>
+</body>
+</html>
