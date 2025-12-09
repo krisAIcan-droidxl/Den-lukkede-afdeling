@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- ========== META & TITLE ========== -->
   <meta charset="UTF-8" />
-  <title>Den Lukkede Afdeling announce roster changes | “HLTV-style” mock</title>
+  <title>Den Lukkede Afdeling bench trio, announce new CS2 lineup | HLTV-style mock</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Open Graph for Discord preview -->
-  <meta property="og:title" content="Den Lukkede Afdeling bench trio and announce new CS2 lineup" />
-  <meta property="og:description" content="After a rough period of results, Den Lukkede Afdeling announces major changes to their CS2 roster." />
+  <meta property="og:title" content="Den Lukkede Afdeling bench trio, announce new CS2 lineup" />
+  <meta property="og:description" content="After a rough streak of results, Den Lukkede Afdeling reshuffles its CS2 lineup and benches three players." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://example.com/den-lukkede-afdeling-roster.html" />
-  <!-- Skift til din rigtige URL når du uploader -->
-  <meta property="og:image" content="https://dummyimage.com/1200x630/111827/ffffff&text=Den+Lukkede+Afdeling+Roster+Update" />
+  <meta property="og:url" content="https://krisalcan-droidxl.github.io/den-lukkede-afdeling/" />
+  <!-- SKIFT DENNE TIL DIT EGET BILLEDE -->
+  <meta property="og:image" content="https://github.com/krisAIcan-droidxl/Den-lukkede-afdeling/blob/main/Gemini_Generated_Image_gk72rlgk72rlgk72.png?raw=true" />
 
+  <!-- ========== GLOBAL STYLES ========== -->
   <style>
     :root {
       --bg: #0d1117;
@@ -40,6 +42,13 @@
       color: var(--text);
     }
 
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* ========== TOP BAR & NAV ========== */
+
     .top-bar {
       background: var(--bg-darker);
       border-bottom: 1px solid var(--border);
@@ -52,22 +61,7 @@
     }
 
     .top-bar span strong {
-      color: var(--accent);
-    }
-
-    .layout {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 16px;
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 1.2fr);
-      gap: 24px;
-    }
-
-    @media (max-width: 900px) {
-      .layout {
-        grid-template-columns: 1fr;
-      }
+      color: var(--danger);
     }
 
     .logo-nav {
@@ -137,6 +131,104 @@
       border-radius: 999px;
     }
 
+    /* ========== HERO COVER ========== */
+
+    .cover-wrapper {
+      max-width: 1120px;
+      margin: 6px auto 0;
+      padding: 0 16px 8px;
+    }
+
+    .cover {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      height: 260px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      /* SKIFT URL HER TIL DIT EGET BILLEDE */
+      background-image: url("COVER_BILLEDE_URL_HER");
+    }
+
+    .cover::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.1),
+        rgba(15, 23, 42, 0.85)
+      );
+    }
+
+    .cover-content {
+      position: absolute;
+      left: 16px;
+      bottom: 14px;
+      right: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      z-index: 1;
+    }
+
+    .cover-text {
+      max-width: 70%;
+    }
+
+    .cover-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .cover-subtitle {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .cover-tag {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    @media (max-width: 900px) {
+      .cover-text {
+        max-width: 100%;
+      }
+
+      .cover-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+    }
+
+    /* ========== PAGE LAYOUT ========== */
+
+    .layout {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 10px 16px 24px;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 1.25fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .article-card {
       background: rgba(15, 23, 42, 0.96);
       border-radius: 10px;
@@ -145,6 +237,8 @@
       box-shadow: 0 22px 55px rgba(0, 0, 0, 0.75);
       backdrop-filter: blur(18px);
     }
+
+    /* ========== ARTICLE HEADER ========== */
 
     .tag-row {
       display: flex;
@@ -167,7 +261,7 @@
     }
 
     .headline {
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 700;
       margin: 4px 0 6px;
     }
@@ -175,7 +269,7 @@
     .subheadline {
       font-size: 14px;
       color: var(--muted);
-      margin-bottom: 18px;
+      margin-bottom: 14px;
     }
 
     .meta-row {
@@ -190,6 +284,41 @@
     .meta-row span.dot::before {
       content: "• ";
       opacity: 0.7;
+    }
+
+    /* ========== TEAM BANNER & HERO INFO ========== */
+
+    .team-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at left, rgba(34, 197, 94, 0.18), transparent 55%);
+    }
+
+    .team-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #1f6feb, #22c55e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    .team-info-title {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .team-info-sub {
+      font-size: 12px;
+      color: var(--muted);
     }
 
     .hero-banner {
@@ -234,6 +363,8 @@
       color: var(--text);
       font-weight: 600;
     }
+
+    /* ========== ARTICLE BODY ========== */
 
     article p {
       font-size: 14px;
@@ -325,6 +456,127 @@
       font-style: italic;
     }
 
+    /* ========== COMMENTS SECTION ========== */
+
+    .comments-section {
+      margin-top: 26px;
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+    }
+
+    .comments-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .comments-header-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    .comments-count {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .comment-input {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .comment-input textarea {
+      resize: vertical;
+      min-height: 60px;
+      max-height: 140px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.95);
+      color: var(--text);
+      padding: 8px 10px;
+      font-family: var(--font-main);
+      font-size: 13px;
+    }
+
+    .comment-input button {
+      align-self: flex-end;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: none;
+      background: var(--accent);
+      color: white;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+
+    .comment-note {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .comment-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13px;
+    }
+
+    .comment {
+      display: grid;
+      grid-template-columns: 28px minmax(0, 1fr);
+      gap: 8px;
+    }
+
+    .comment-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: radial-gradient(circle at top, #22c55e, #1f2937);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .comment-body {
+      border-radius: 8px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border);
+      padding: 6px 8px;
+    }
+
+    .comment-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 3px;
+    }
+
+    .comment-name {
+      font-weight: 600;
+    }
+
+    .comment-time {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .comment-text {
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    /* ========== SIDE COLUMN LAYOUT ========== */
+
     .side-column {
       display: flex;
       flex-direction: column;
@@ -364,9 +616,141 @@
       margin-top: 4px;
     }
 
+    /* LIVE MATCH CARD */
+
+    .score-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+
+    .score-team {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .score-tag {
+      padding: 2px 6px;
+      border-radius: 999px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .score-number {
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .live-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 6px;
+      border-radius: 999px;
+      background: rgba(220, 38, 38, 0.18);
+      color: var(--danger);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 6px;
+    }
+
+    .live-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--danger);
+    }
+
+    .players-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .player-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+    }
+
+    .player-row span.right {
+      color: var(--muted);
+    }
+
+    /* ========== NEWS LIST (HLTV STYLE) ========== */
+
+    .news-card {
+      padding-top: 10px;
+    }
+
+    .news-header {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .news-group-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: #e5e7eb;
+      margin: 6px 0 4px;
+    }
+
+    .news-list {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .news-item {
+      display: grid;
+      grid-template-columns: 18px minmax(0, 1fr) 60px;
+      gap: 6px;
+      align-items: center;
+      padding: 3px 4px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .news-item:hover {
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .news-flag {
+      width: 16px;
+      height: 11px;
+      border-radius: 2px;
+      background: linear-gradient(90deg, #1d4ed8, #16a34a, #eab308);
+      opacity: 0.8;
+    }
+
+    .news-title {
+      font-size: 12px;
+      color: #e5e7eb;
+      line-height: 1.3;
+    }
+
+    .news-meta {
+      font-size: 11px;
+      color: var(--muted);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    /* ========== FOOTER NOTE ========== */
+
     .footer-note {
       max-width: 1120px;
-      margin: 20px auto 24px;
+      margin: 10px auto 24px;
       padding: 0 16px;
       font-size: 11px;
       color: var(--muted);
@@ -375,6 +759,7 @@
   </style>
 </head>
 <body>
+  <!-- ========== TOP BAR & NAV ========== -->
   <div class="top-bar">
     <span><strong>LIVE</strong> – CS2 coverage · Europe</span>
     <span>Mock page inspired by HLTV.org · For fun only</span>
@@ -395,8 +780,26 @@
     </nav>
   </header>
 
+  <!-- ========== HERO COVER ========== -->
+  <div class="cover-wrapper">
+    <div class="cover">
+      <div class="cover-content">
+        <div class="cover-text">
+          <div class="cover-title">Den Lukkede Afdeling bench trio, announce new CS2 lineup</div>
+          <div class="cover-subtitle">
+            Major reshuffle for the Danish squad after a rough streak of results. New IGL, new AWP, new anchor.
+          </div>
+        </div>
+        <div class="cover-tag">Feature · Roster update</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== MAIN LAYOUT ========== -->
   <main class="layout">
+    <!-- ======== LEFT: ARTICLE ======== -->
     <section class="article-card">
+      <!-- Article header -->
       <div class="tag-row">
         <span class="tag-pill">Roster update</span>
         <span>Denmark · CS2</span>
@@ -415,8 +818,18 @@
         <span class="dot">Updated 17:00 CET</span>
       </div>
 
+      <!-- Team banner -->
+      <div class="team-banner">
+        <div class="team-logo">DA</div>
+        <div>
+          <div class="team-info-title">Den Lukkede Afdeling</div>
+          <div class="team-info-sub">Danish CS2 team · Non-official HLTV profile</div>
+        </div>
+      </div>
+
+      <!-- Roster overview pill row -->
       <div class="hero-banner">
-        <div class="hero-label">ROSTER OVERVIEW</div>
+        <div class="hero-label">Roster overview</div>
         <div class="hero-stats">
           <div class="hero-tag">
             <span class="label">Team:</span>
@@ -437,6 +850,7 @@
         </div>
       </div>
 
+      <!-- ======== ARTICLE BODY ======== -->
       <article>
         <p>
           After a period characterized by too many losses and not enough highlights, the leadership of
@@ -444,7 +858,8 @@
         </p>
 
         <p>
-          Effective immediately, <strong>@Deepsito</strong>, <strong>@Scharn9</strong> and <strong>@taica</strong> will step out of the starting five and move to the bench. In their place, a new core will take over the key roles in the team.
+          Effective immediately, <strong>@Deepsito</strong>, <strong>@Scharn9</strong> and <strong>@taica</strong> will step out of the
+          starting five and move to the bench. In their place, a new core will take over the key roles in the team.
         </p>
 
         <h2 class="section-title">New starting lineup & roles</h2>
@@ -541,14 +956,97 @@
           With the new roster locked in, attention now turns to whether Den Lukkede Afdeling can turn their recent slump
           around and stabilise their performance in upcoming matches.
         </p>
+
+        <!-- ======== COMMENTS (MOCK) ======== -->
+        <div class="comments-section">
+          <div class="comments-header">
+            <div class="comments-header-title">Comments</div>
+            <div class="comments-count">12 comments (mock)</div>
+          </div>
+
+          <div class="comment-input">
+            <textarea placeholder="Log in to post a comment (this is a fake HLTV-style page, comments are disabled)."></textarea>
+            <button disabled>Post comment</button>
+          </div>
+          <div class="comment-note">
+            This is a parody page. Comments are not actually stored or sent anywhere.
+          </div>
+
+          <div class="comment-list">
+            <div class="comment">
+              <div class="comment-avatar">D</div>
+              <div class="comment-body">
+                <div class="comment-meta">
+                  <span class="comment-name">DanishFan</span>
+                  <span class="comment-time">1 hour ago</span>
+                </div>
+                <div class="comment-text">
+                  Finally some changes. Curious to see how @Bentsen performs on the AWP.
+                </div>
+              </div>
+            </div>
+
+            <div class="comment">
+              <div class="comment-avatar">C</div>
+              <div class="comment-body">
+                <div class="comment-meta">
+                  <span class="comment-name">CS_2k25</span>
+                  <span class="comment-time">45 minutes ago</span>
+                </div>
+                <div class="comment-text">
+                  Feel bad for @Scharn9, but I respect the decision. New IGL might unlock the others.
+                </div>
+              </div>
+            </div>
+
+            <div class="comment">
+              <div class="comment-avatar">S</div>
+              <div class="comment-body">
+                <div class="comment-meta">
+                  <span class="comment-name">SleepySok</span>
+                  <span class="comment-time">just now</span>
+                </div>
+                <div class="comment-text">
+                  I will top frag as soon as I wake up.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </article>
     </section>
 
+    <!-- ======== RIGHT: SIDE COLUMN ======== -->
     <aside class="side-column">
+      <!-- Live / upcoming match -->
+      <div class="side-card">
+        <h3>Live / upcoming match</h3>
+        <div class="live-pill">
+          <span class="live-dot"></span>
+          <span>Upcoming</span>
+        </div>
+        <div class="score-row">
+          <div class="score-team">
+            <span class="score-tag">BO3</span>
+            <span>Den Lukkede Afdeling</span>
+          </div>
+          <div class="score-number">–</div>
+        </div>
+        <div class="score-row">
+          <div class="score-team">
+            <span class="score-tag">vs</span>
+            <span>Mixed Puggers</span>
+          </div>
+          <div class="score-number">–</div>
+        </div>
+        <p>Match scheduled: TBA · Mock data only.</p>
+      </div>
+
+      <!-- Roster summary -->
       <div class="side-card">
         <h3>Roster summary</h3>
-        <p><strong>New lineup:</strong></p>
         <div class="side-highlight">
+          <strong>New lineup:</strong><br />
           @Marcus – Support<br />
           @Draygus – Entry fragger<br />
           @submastersubs – IGL<br />
@@ -559,15 +1057,31 @@
         </div>
       </div>
 
+      <!-- Top players (mock stats) -->
       <div class="side-card">
-        <h3>Benched</h3>
-        <div class="side-highlight">
-          @taica – Former AWP<br />
-          @Deepsito – Former anchor / rifler<br />
-          @Scharn9 – Former IGL
+        <h3>Top players (mock)</h3>
+        <p>Last 3 matches (fictional stats):</p>
+        <div class="players-list">
+          <div class="player-row">
+            <span>@Draygus</span>
+            <span class="right">1.23 rating</span>
+          </div>
+          <div class="player-row">
+            <span>@Marcus</span>
+            <span class="right">78% flash assist</span>
+          </div>
+          <div class="player-row">
+            <span>@Bentsen</span>
+            <span class="right">0.41 AWP / round</span>
+          </div>
+          <div class="player-row">
+            <span>@Uldnesok</span>
+            <span class="right">1.05 impact</span>
+          </div>
         </div>
       </div>
 
+      <!-- Contact & leadership -->
       <div class="side-card">
         <h3>Contact & leadership</h3>
         <p>
@@ -575,12 +1089,72 @@
         </p>
         <div class="side-highlight">
           – Upper management, “Den Lukkede Afdeling”<br />
-          – or @Uldnesok, noted as being closest to the decision-makers.
+          – or @Uldnesok, noted as being closest to the decision-makers and having recognised leadership skills.
+        </div>
+      </div>
+
+      <!-- HLTV-style news list -->
+      <div class="side-card news-card">
+        <div class="news-header">Today’s news</div>
+
+        <div class="news-list">
+          <div class="news-item">
+            <div class="news-flag"></div>
+            <div class="news-title">
+              Den Lukkede Afdeling bench trio, announce new CS2 lineup
+            </div>
+            <div class="news-meta">16 min ago<br />12 comments</div>
+          </div>
+
+          <div class="news-item">
+            <div class="news-flag"></div>
+            <div class="news-title">
+              Sources: @Sok to stay as star player “when awake”
+            </div>
+            <div class="news-meta">34 min ago<br />21 comments</div>
+          </div>
+
+          <div class="news-item">
+            <div class="news-flag"></div>
+            <div class="news-title">
+              @Bentsen to debut on AWP in upcoming BO3
+            </div>
+            <div class="news-meta">2 hours ago<br />18 comments</div>
+          </div>
+
+          <div class="news-item">
+            <div class="news-flag"></div>
+            <div class="news-title">
+              @submastersubs takes over IGL role from @Scharn9
+            </div>
+            <div class="news-meta">3 hours ago<br />9 comments</div>
+          </div>
+        </div>
+
+        <div class="news-group-title">Yesterday’s news</div>
+
+        <div class="news-list">
+          <div class="news-item">
+            <div class="news-flag"></div>
+            <div class="news-title">
+              Report: internal talks in Den Lukkede Afdeling before roster move
+            </div>
+            <div class="news-meta">1 day ago<br />33 comments</div>
+          </div>
+
+          <div class="news-item">
+            <div class="news-flag"></div>
+            <div class="news-title">
+              Community reacts to slump: “Time for changes”
+            </div>
+            <div class="news-meta">1 day ago<br />27 comments</div>
+          </div>
         </div>
       </div>
     </aside>
   </main>
 
+  <!-- ========== FOOTER NOTE ========== -->
   <div class="footer-note">
     This is a fan-made parody page inspired by HLTV.org styling. Not affiliated with HLTV.org or any official entity.
   </div>
